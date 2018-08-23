@@ -1,0 +1,18 @@
+.navigation.collapse.navbar-collapse
+  %nav.navbar.navbar-default{ role: "navigation" }
+    .container
+      .navbar_header
+        %button.navbar-toggle{ data_toggle: "collapse", data_target: "#navigation-example-2" }
+          %span.sr-only Toggle navigation
+        = link_to "Ponczki", root_path, class: "navbar-brand"
+
+      #navigation_links.collapse.navbar-collapse
+        %ul.nav.navbar-nav
+          %li= link_to "Teams", teams_path
+          %li= link_to "Workers", users_path
+          %li= link_to "Bloopers", bloopers_path
+          %li= link_to "About Ponczki", "#"
+
+        %ul.nav.navbar-nav.navbar-right
+          -# if logged_in?
+            %li= link_to t('nav.profile'), profile_path

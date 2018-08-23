@@ -1,5 +1,8 @@
 {
   "name": "ponczki",
   "private": true,
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "sass-lint-auto-fix": "^0.11.3"
+  }
 }
