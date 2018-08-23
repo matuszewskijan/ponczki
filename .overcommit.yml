@@ -30,6 +30,9 @@ PreCommit:
 
   ImageOptim:
     enabled: true
+    exclude:
+      - public/apple-touch-icon.png
+      - public/apple-touch-icon-precomposed.png
 
   JavaCheckstyle:
     enabled: true
