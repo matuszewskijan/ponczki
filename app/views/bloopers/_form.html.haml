@@ -1,0 +1,25 @@
+= form_for @blooper do |f|
+  - if @blooper.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@blooper.errors.count, "error")} prohibited this blooper from being saved:"
+      %ul
+        - @blooper.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :user_id
+    = f.number_field :user_id
+  .field
+    = f.label :device
+    = f.text_area :device
+  .field
+    = f.label :description
+    = f.text_area :description
+  .field
+    = f.label :time
+    = f.date_select :time
+  .field
+    = f.label :founder_id
+    = f.number_field :founder_id
+  .actions
+    = f.submit 'Save'

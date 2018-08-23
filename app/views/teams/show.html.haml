@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @team.name
+%p
+  %b Description:
+  = @team.description
+%p
+  %b Owner:
+  = @team.owner_id
+%p
+  %b Eaten doughnuts:
+  = @team.eaten_doughnuts
+%p
+  %b Awaiting doughnuts:
+  = @team.awaiting_doughnuts
+%p
+  %b Slack url:
+  = @team.slack_url
+%p
+  %b Members count:
+  = @team.members_count
+%p
+  %b Bloopers cont:
+  = @team.bloopers_cont
+
+= link_to 'Edit', edit_team_path(@team)
+\|
+= link_to 'Back', teams_path

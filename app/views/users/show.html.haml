@@ -1,0 +1,36 @@
+%p#notice= notice
+
+%p
+  %b First name:
+  = @user.first_name
+%p
+  %b Last name:
+  = @user.last_name
+%p
+  %b Description:
+  = @user.description
+%p
+  %b Position:
+  = @user.position
+%p
+  %b Slack nick:
+  = @user.slack_nick
+%p
+  %b Eaten doughnuts:
+  = @user.eaten_doughnuts
+%p
+  %b Awaiting doughnuts:
+  = @user.awaiting_doughnuts
+%p
+  %b Delivered doughnuts:
+  = @user.delivered_doughnuts
+%p
+  %b Bloopers count:
+  = @user.bloopers_count
+%p
+  %b Team:
+  = @user.team_id
+
+= link_to 'Edit', edit_user_path(@user)
+\|
+= link_to 'Back', users_path

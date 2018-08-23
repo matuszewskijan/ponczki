@@ -1,0 +1,2 @@
+class Blooper < ApplicationRecord
+end

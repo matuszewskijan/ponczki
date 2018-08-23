@@ -1,0 +1,29 @@
+%h1 Listing bloopers
+
+%table
+  %thead
+    %tr
+      %th User
+      %th Device
+      %th Description
+      %th Time
+      %th Founder
+      %th
+      %th
+      %th
+
+  %tbody
+    - @bloopers.each do |blooper|
+      %tr
+        %td= blooper.user_id
+        %td= blooper.device
+        %td= blooper.description
+        %td= blooper.time
+        %td= blooper.founder_id
+        %td= link_to 'Show', blooper
+        %td= link_to 'Edit', edit_blooper_path(blooper)
+        %td= link_to 'Destroy', blooper, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Blooper', new_blooper_path

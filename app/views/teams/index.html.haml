@@ -1,0 +1,35 @@
+%h1 Listing teams
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Description
+      %th Owner
+      %th Eaten doughnuts
+      %th Awaiting doughnuts
+      %th Slack url
+      %th Members count
+      %th Bloopers cont
+      %th
+      %th
+      %th
+
+  %tbody
+    - @teams.each do |team|
+      %tr
+        %td= team.name
+        %td= team.description
+        %td= team.owner_id
+        %td= team.eaten_doughnuts
+        %td= team.awaiting_doughnuts
+        %td= team.slack_url
+        %td= team.members_count
+        %td= team.bloopers_cont
+        %td= link_to 'Show', team
+        %td= link_to 'Edit', edit_team_path(team)
+        %td= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Team', new_team_path

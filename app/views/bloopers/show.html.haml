@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @blooper.user_id
+%p
+  %b Device:
+  = @blooper.device
+%p
+  %b Description:
+  = @blooper.description
+%p
+  %b Time:
+  = @blooper.time
+%p
+  %b Founder:
+  = @blooper.founder_id
+
+= link_to 'Edit', edit_blooper_path(@blooper)
+\|
+= link_to 'Back', bloopers_path
