@@ -21,6 +21,7 @@ gem "coffee-rails"
 gem "image_optim"
 gem "image_optim_pack"
 gem "font-awesome-rails"
+gem "rest-client"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.1.0", require: false

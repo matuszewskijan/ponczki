@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   resources :bloopers
   resources :users
   resources :teams
+  post ":team", to: "slack_api#bloop"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
