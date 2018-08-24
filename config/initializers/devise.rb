@@ -281,5 +281,5 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
   config.omniauth :slack, Rails.application.credentials.slack_client_id, Rails.application.credentials.slack_client_secret,
-  scope: 'identity.basic'
+  scope: 'identity.avatar,identity.basic,identity.email,identity.team'
 end
