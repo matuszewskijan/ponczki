@@ -52,3 +52,12 @@ Bundler/OrderedGems:
 
 Layout/AlignParameters:
   EnforcedStyle: with_first_parameter
+
+Lint/AmbiguousBlockAssociation:
+  Enabled: false
+
+Performance/TimesMap:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
