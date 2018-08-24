@@ -9,6 +9,7 @@ class Team < ApplicationRecord
       team.slack_team_id = auth.extra.identity.team.id
       team.name = auth.extra.identity.team.name
       team.slack_url = "https://#{auth.extra.identity.team.domain}.slack.com"
+      team.slack_name = auth.extra.identity.team.domain
       team.save!
     end
   end

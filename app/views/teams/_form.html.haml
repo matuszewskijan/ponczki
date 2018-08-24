@@ -12,23 +12,9 @@
   .field
     = f.label :description
     = f.text_area :description
-  .field
-    = f.label :owner_id
-    = f.number_field :owner_id
-  .field
-    = f.label :eaten_doughnuts
-    = f.number_field :eaten_doughnuts
-  .field
-    = f.label :awaiting_doughnuts
-    = f.number_field :awaiting_doughnuts
-  .field
-    = f.label :slack_url
-    = f.text_area :slack_url
-  .field
-    = f.label :members_count
-    = f.number_field :members_count
-  .field
-    = f.label :bloopers_cont
-    = f.number_field :bloopers_cont
+
+  = f.hidden_field :slack_name, value: @team.slack_name
+  - if @team.admin.nil?
+    = f.hidden_field :admin, value: true
   .actions
     = f.submit 'Save'

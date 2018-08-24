@@ -30,7 +30,14 @@ class TeamsController < ApplicationController
 
   # PATCH/PUT /teams/1
   def update
-    if @team.update(team_params)
+    @team = Team.find_by(slack_name: team_params["slack_name"])
+    if team_params["admin"]
+      @team.owner_id = current_user.id
+      @team.members_count += 1
+      @team.description = team_params["description"]
+      @team.save
+      redirect_to page_setup_tutorial_path(@team.slack_name)
+    elsif @team.update(team_params)
       redirect_to @team, notice: "Team was successfully updated."
     else
       render :edit
@@ -43,15 +50,19 @@ class TeamsController < ApplicationController
     redirect_to teams_url, notice: "Team was successfully destroyed."
   end
 
+  def become_admin; end
+
+  def setup; end
+
   private
 
   def set_team
-    @team = Team.find(params[:id])
+    @team = Team.find_by(slack_name: params[:name])
   end
 
   # Only allow a trusted parameter "white list" through.
   def team_params
-    params.require(:team).permit(:name, :description, :owner_id, :eaten_doughnuts,
-                                 :awaiting_doughnuts, :slack_url, :members_count, :bloopers_cont)
+    params.require(:team).permit(:name, :description, :owner_id, :eaten_doughnuts, :admin,
+                                 :awaiting_doughnuts, :slack_url, :slack_name)
   end
 end
