@@ -12,6 +12,7 @@ PreCommit:
     enabled: true
     exclude:
       - vendor/assets/**/*
+      - coverage/**/*
 
   EsLint:
     enabled: false
@@ -27,12 +28,14 @@ PreCommit:
     enabled: true
     exclude:
       - vendor/assets/**/*
+      - coverage/**/*
 
   ImageOptim:
     enabled: true
     exclude:
       - public/apple-touch-icon.png
       - public/apple-touch-icon-precomposed.png
+      - coverage/**/*
 
   JavaCheckstyle:
     enabled: true
@@ -44,6 +47,7 @@ PreCommit:
     enabled: true
     exclude:
       - vendor/assets/**/*
+      - coverage/**/*
 
   JsonSyntax:
     enabled: true
@@ -71,6 +75,7 @@ PreCommit:
     enabled: true
     exclude:
       - vendor/assets/**/*
+      - coverage/**/*
 
   ShellCheck:
     enabled: true
@@ -79,6 +84,7 @@ PreCommit:
     enabled: true
     exclude:
       - vendor/assets/**/*
+      - coverage/**/*
 
   TravisLint:
     enabled: true
