@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-  before_action :set_team, only: [:show, :edit, :update, :destroy]
+  before_action :set_team, only: [:show, :edit, :update, :destroy, :become_admin]
 
   # GET /teams
   def index
@@ -33,7 +33,7 @@ class TeamsController < ApplicationController
     @team = Team.find_by(slack_name: team_params["slack_name"])
     if team_params["admin"]
       @team.owner_id = current_user.id
-      @team.members_count += 1
+      @team.add_user(current_user)
       @team.description = team_params["description"]
       @team.save
       redirect_to page_setup_tutorial_path(@team.slack_name)

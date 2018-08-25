@@ -1,30 +1,37 @@
 %p#notice= notice
 
-%p
-  %b Name:
-  = @team.name
-%p
-  %b Description:
-  = @team.description
-%p
-  %b Owner:
-  = @team.owner_id
-%p
-  %b Eaten doughnuts:
-  = @team.eaten_doughnuts
-%p
-  %b Awaiting doughnuts:
-  = @team.awaiting_doughnuts
-%p
-  %b Slack url:
-  = @team.slack_url
-%p
-  %b Members count:
-  = @team.members_count
-%p
-  %b Bloopers cont:
-  = @team.bloopers_cont
+#page-wrapper.container
+  .row
+    .col-lg-12
+      %h1
+        = @team.name
+        %small Team Overview
+  .row
+    .col-sm-3
+      .user-profile__avatar.shadow-effect.text-center
+        = image_tag @team.avatar_url, alt: @team.name, class: "img-responsive center-block"
+    .col-sm-9
+      .row
+        .col-sm-6
+          %h3.user-profile__title= @team.name
+          %p.user-profile__desc
+            = @team.description
+          .user-profile__url
+            = link_to @team.slack_url
+        .col-sm-6
+          / Profile info
+          %ul.user-profile__info
+            %li
+              %i.fa.fa-calendar-o
+              Member for #{distance_of_time_in_words(@team.created_at, Time.now)}
+            %li
+              %i.fa.fa-clock-o
+              Last seen 2 hours ago
+            %li
+              %i.fa.fa-eye
+              50 profile views
+  %hr
+  = render "team"
 
-= link_to 'Edit', edit_team_path(@team)
-\|
-= link_to 'Back', teams_path
+  %h2 Members:
+  = render @team.users

@@ -10,7 +10,7 @@
       %th Awaiting doughnuts
       %th Slack url
       %th Members count
-      %th Bloopers cont
+      %th Bloopers count
       %th
       %th
       %th
@@ -25,11 +25,10 @@
         %td= team.awaiting_doughnuts
         %td= team.slack_url
         %td= team.members_count
-        %td= team.bloopers_cont
-        %td= link_to 'Show', team
+        %td= team.bloopers_count
+        %td= link_to 'Show', team_path(team.slack_name)
         %td= link_to 'Edit', edit_team_path(team)
-        %td= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' }
-
+        %td= link_to 'Destroy', team_path(team.slack_name), method: :delete, data: { confirm: 'Are you sure?' }
 %br
 
 = link_to 'New Team', new_team_path
