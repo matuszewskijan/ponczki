@@ -5,6 +5,7 @@ FactoryBot.define do
     description "MyText"
     position "MyText"
     slack_nick "MyText"
+    slack_id { Array.new(9) { rand(10) } }
     eaten_doughnuts 1
     awaiting_doughnuts 1
     delivered_doughnuts 1

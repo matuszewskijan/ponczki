@@ -9,8 +9,8 @@ class Team < ApplicationRecord
 
   def self.from_omniauth(auth)
     # puts JSON.pretty_generate(auth)
-    where(slack_team_id: auth.extra.identity.team.id).first_or_create do |team|
-      team.slack_team_id = auth.extra.identity.team.id
+    where(slack_id: auth.extra.identity.team.id).first_or_create do |team|
+      team.slack_id = auth.extra.identity.team.id
       team.name = auth.extra.identity.team.name
       team.slack_url = "https://#{auth.extra.identity.team.domain}.slack.com"
       team.slack_name = auth.extra.identity.team.domain

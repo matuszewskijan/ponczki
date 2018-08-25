@@ -15,7 +15,7 @@ RSpec.describe SlackApi, type: :model do
 
     context "when user exsits" do
       it "return user" do
-        user = FactoryBot.create(:user, slack_user_id: api_hash["user_id"])
+        user = FactoryBot.create(:user, slack_id: api_hash["user_id"])
         expect(described_class.validate_user(api_hash["user_id"])).to eq user
       end
     end
@@ -30,17 +30,17 @@ RSpec.describe SlackApi, type: :model do
 
     context "when user exsits" do
       it "return team" do
-        team = FactoryBot.create(:team, slack_team_id: api_hash["team_id"])
+        team = FactoryBot.create(:team, slack_id: api_hash["team_id"])
         expect(described_class.validate_team(api_hash["team_id"])).to eq team
       end
     end
   end
-  let(:user) { FactoryBot.create(:user, slack_user_id: api_hash["user_id"]) }
-  let(:team) { FactoryBot.create(:team, slack_team_id: api_hash["team_id"]) }
+  let(:user) { FactoryBot.create(:user, slack_id: api_hash["user_id"]) }
+  let(:team) { FactoryBot.create(:team, slack_id: api_hash["team_id"]) }
   describe "self.process_params" do
     context "setup parameter passed" do
       it "flag your team as setted up" do
-        expect { described_class.process_params("setup", user, team) }.to change { team.settled_up }
+        expect { described_class.process_params("setup", user, team) }.to change { team.setted_up }
       end
       it "respond with success information" do
         expect(described_class.process_params("setup", user, team)).to include "Yay! Everything works fine"
@@ -64,7 +64,7 @@ RSpec.describe SlackApi, type: :model do
     end
   end
 
-  let(:finder) { FactoryBot.create(:user, slack_user_id: Array.new(9) { rand(10) }) }
+  let(:finder) { FactoryBot.create(:user, slack_id: Array.new(9) { rand(10) }) }
   describe "self.new_blooper" do
     context "finder doesn't exists" do
       it "inform that you have to register" do
@@ -78,9 +78,12 @@ RSpec.describe SlackApi, type: :model do
       end
     end
     context "user and finder are in the same team" do
+      after do
+        Blooper.delete_all
+      end
       subject { described_class.new_blooper(user, finder, team) }
-      it { expect(Blooper.count).to eq 1 }
-      it { expect(team.awaiting_doughnuts). to eq 1 }
+      it { expect(Blooper.count).to eq 2 }
+      it { expect(team.awaiting_doughnuts).to eq 1 }
     end
   end
 

@@ -51,6 +51,6 @@ class BloopersController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def blooper_params
-    params.require(:blooper).permit(:user_id, :device, :description, :time, :founder_id)
+    params.require(:blooper).permit(:user_id, :device, :description, :time, :finder_id)
   end
 end

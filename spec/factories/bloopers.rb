@@ -4,6 +4,6 @@ FactoryBot.define do
     device "MyText"
     description "MyText"
     time "2018-08-22"
-    founder_id 1
+    finder_id 1
   end
 end

@@ -8,6 +8,6 @@ FactoryBot.define do
     slack_url "MyText"
     members_count 1
     bloopers_count 1
-    settled_up false
+    setted_up false
   end
 end

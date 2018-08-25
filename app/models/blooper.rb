@@ -6,7 +6,7 @@ class Blooper < ApplicationRecord
   def self.new_blooper(user, finder, team)
     create(
       user_id: user.id,
-      founder_id: finder.id,
+      finder_id: finder.id,
       doughnut_counter: team.users.count - 1,
       delivery_status: false
     )
