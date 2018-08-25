@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-  before_action :set_team, only: [:show, :edit, :update, :destroy, :become_admin]
+  before_action :set_team, only: [:show, :edit, :update, :destroy, :become_admin, :tutorial]
 
   # GET /teams
   def index

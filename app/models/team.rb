@@ -19,6 +19,8 @@ class Team < ApplicationRecord
     end
   end
 
+  def self.from_api(params); end
+
   def add_user(user)
     user.team = self
     self.members_count += 1

@@ -30,3 +30,6 @@
 /config/master.key
 /config/storage.yml
 /config/database.yml
+
+# Ignore test coverage
+/coverage/**/*
