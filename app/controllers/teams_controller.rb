@@ -7,7 +7,9 @@ class TeamsController < ApplicationController
   end
 
   # GET /teams/1
-  def show; end
+  def show
+    puts @team.current_user_is_admin?(current_user)
+  end
 
   # GET /teams/new
   def new
@@ -20,7 +22,6 @@ class TeamsController < ApplicationController
   # POST /teams
   def create
     @team = Team.new(team_params)
-
     if @team.save
       redirect_to @team, notice: "Team was successfully created."
     else
@@ -33,10 +34,10 @@ class TeamsController < ApplicationController
     @team = Team.find_by(slack_name: team_params["slack_name"])
     if team_params["admin"]
       @team.owner_id = current_user.id
-      @team.add_user(current_user)
+      @team.add_admin_user(current_user)
       @team.description = team_params["description"]
       @team.save
-      redirect_to page_setup_tutorial_path(@team.slack_name)
+      redirect_to(team_setup_tutorial_path(@team.slack_name)) && return
     elsif @team.update(team_params)
       redirect_to @team, notice: "Team was successfully updated."
     else

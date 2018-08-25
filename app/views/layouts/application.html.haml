@@ -1,13 +1,14 @@
 !!!
-%html
-  %head
-    %title Ponczki
-    = csrf_meta_tags
-    = csp_meta_tag
-
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-
-  %body
-    = render "navbar"
-    = yield
+%html{lang: "en"}
+  = render 'header'
+  %body{class: controller_name + ' ' + action_name}
+    .off-canvas-content{'data-off-canvas-content': ''}
+      = render 'navbar'
+      = yield :banner
+      - container_classes = content_for(:full_width).present? ? 'container' : 'container content'
+      %div{class: container_classes}
+        .row.relative
+          = render 'messages'
+          = yield
+      = yield :full_width
+      = render 'footer'

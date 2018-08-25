@@ -20,4 +20,8 @@ class User < ApplicationRecord
       user.save!
     end
   end
+
+  def team_admin?
+    !team_admin_id.nil?
+  end
 end
