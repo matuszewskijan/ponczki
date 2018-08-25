@@ -9,10 +9,10 @@ FactoryBot.define do
     awaiting_doughnuts 1
     delivered_doughnuts 1
     bloopers_count 1
-    team_id 1
     team_admin_id nil
     email { Faker::Internet.email }
     password { Devise.friendly_token[0, 20] }
+    provider "slack"
     association :team
 
     trait :admin do

@@ -7,6 +7,7 @@ FactoryBot.define do
     awaiting_doughnuts 1
     slack_url "MyText"
     members_count 1
-    bloopers_cont 1
+    bloopers_count 1
+    settled_up false
   end
 end

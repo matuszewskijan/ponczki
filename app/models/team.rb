@@ -32,4 +32,8 @@ class Team < ApplicationRecord
     user.team_admin_id = id
     user.save!
   end
+
+  def increment_awaiting_doughnuts(doughnut_counter)
+    increment!(:awaiting_doughnuts, doughnut_counter)
+  end
 end

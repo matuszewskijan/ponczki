@@ -25,4 +25,8 @@ class User < ApplicationRecord
   def team_admin?
     !team_admin_id.nil?
   end
+
+  def increment_awaiting_doughnuts
+    increment!(:awaiting_doughnuts)
+  end
 end

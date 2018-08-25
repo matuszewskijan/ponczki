@@ -30,7 +30,7 @@ class SlackApi < ApplicationRecord
   def self.new_blooper(user, finder, team)
     return "You have to register at Ponczki!" if finder.nil?
     return "You both have to be members of the same team!" if finder.team != user.team
-    Blooper.new_bloop(user, finder, team)
+    Blooper.new_blooper(user, finder, team)
     "<@#{finder.slack_user_id}> - you have got a point. <@#{user.slack_user_id}> is buying doughnuts!"
   end
 
