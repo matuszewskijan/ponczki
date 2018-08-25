@@ -1,3 +1,41 @@
+%link{:href => "https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css", :rel => "stylesheet"}/
+.container
+  .user-profile
+    .row
+      .col-md-4
+        .profile-info-left
+          .text-center
+            = image_tag @user.avatar_url, alt: "#{@user.first_name} avatar", class: "avatar img-circle", width: "250px", height: "250px"
+            %h2= @user.first_name
+            %h4 #{@user.position} at #{link_to @user.team.name, team_path(@user.team.slack_name)}
+          .action-buttons
+            .row
+              .col-xs-6
+                %a.btn.btn-success.btn-block{:href => "#"}
+                  %i.fa.fa-plus-round
+                  Follow
+              .col-xs-6
+                %a.btn.btn-primary.btn-block{:href => "#"}
+                  %i.fa.fa-android-mail
+                  Message
+          .section
+            %h3 About Me
+            %p= @user.description
+      .col-md-8
+        .section
+          %h3 Statistics
+          %p
+            %span.badge= @user.eaten_doughnuts
+            eaten_doughnuts
+          %p
+            %span.badge= @user.awaiting_doughnuts
+            awaiting_doughnuts
+          %p
+            %span.badge= @user.delivered_doughnuts
+            delivered_doughnuts
+        .section
+          %h3 Social
+          %ul.list-unstyled.list-social
 %p#notice= notice
 
 %p
