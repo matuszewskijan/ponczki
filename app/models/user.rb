@@ -10,7 +10,6 @@ class User < ApplicationRecord
     # puts JSON.pretty_generate(auth)
     where(provider: auth.provider, slack_user_id: auth.uid).first_or_create do |user|
       user.first_name = auth.info.name
-      user.description = auth.info.name
       user.email = auth.info.email
       user.slack_user_id = auth.uid
       user.slack_nick = auth.info.nickname

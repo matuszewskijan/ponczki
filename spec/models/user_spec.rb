@@ -8,16 +8,18 @@ describe User do
     it { User.reflect_on_association(:team).macro.should eq(:belongs_to) }
   end
 
-  let(:auth) { mock_auth_hash }
+  let(:auth) { facebook_hash }
 
   describe "#self.from_omniauth" do
     context "when user don't exists" do
       it "create new user" do
+        puts auth.inspect
+        puts "asd"
         expect { described_class.from_omniauth(auth) }.to change { User.count }
       end
     end
     context "when user exists" do
-      let!(:auth) { mock_auth_hash }
+      let!(:auth) { facebook_hash }
       before do
         described_class.from_omniauth(auth)
       end

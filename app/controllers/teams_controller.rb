@@ -7,9 +7,7 @@ class TeamsController < ApplicationController
   end
 
   # GET /teams/1
-  def show
-    puts @team.current_user_is_admin?(current_user)
-  end
+  def show; end
 
   # GET /teams/new
   def new

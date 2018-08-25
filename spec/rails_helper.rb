@@ -37,18 +37,18 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = false
   include Warden::Test::Helpers
 
-  DatabaseCleaner.clean_with :truncation
+  # DatabaseCleaner.clean_with :truncation
 
-  config.before(:each) do
-    DatabaseCleaner.strategy = :transaction
-    DatabaseCleaner.start
-  end
+  # config.before(:each) do
+    # DatabaseCleaner.strategy = :transaction
+    # DatabaseCleaner.start
+  # end
 
-  config.append_after(:each) do
-    DatabaseCleaner.clean
-  end
+  # config.append_after(:each) do
+    # DatabaseCleaner.clean
+  # end
 
-  InvisibleCaptcha.timestamp_enabled = false
+  # InvisibleCaptcha.timestamp_enabled = false
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
   # `post` in specs under `spec/controllers`.
