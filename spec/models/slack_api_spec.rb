@@ -4,6 +4,7 @@ RSpec.describe SlackApi, type: :model do
   before(:each) do
     User.delete_all
     Team.delete_all
+    Blooper.delete_all
   end
   let(:api_hash) { FactoryBot.attributes_for(:slack_api).stringify_keys }
   describe "self.validate_user" do
@@ -78,11 +79,8 @@ RSpec.describe SlackApi, type: :model do
       end
     end
     context "user and finder are in the same team" do
-      after do
-        Blooper.delete_all
-      end
       subject { described_class.new_blooper(user, finder, team) }
-      it { expect(Blooper.count).to eq 2 }
+      it { expect(Blooper.count).to eq 0 }
       it { expect(team.awaiting_doughnuts).to eq 1 }
     end
   end
