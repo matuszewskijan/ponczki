@@ -1,65 +1,64 @@
-.row
-  .col-lg-3
-    .panel.panel-info
-      .panel-heading
+.col-lg-3
+  .panel.panel-info
+    .panel-heading
+      .row
+        .col-xs-6
+          %i.fa.fa-users.fa-5x
+        .col-xs-6.text-right
+          %p.announcement-heading= @team.members_count
+          %p.announcement-text Team Members
+    %a{:href => "#"}
+      .panel-footer.announcement-bottom
         .row
           .col-xs-6
-            %i.fa.fa-users.fa-5x
+            View users
           .col-xs-6.text-right
-            %p.announcement-heading= @team.members_count
-            %p.announcement-text Team Members
-      %a{:href => "#"}
-        .panel-footer.announcement-bottom
-          .row
-            .col-xs-6
-              View users
-            .col-xs-6.text-right
-              %i.fa.fa-arrow-circle-right
-  .col-lg-3
-    .panel.panel-warning
-      .panel-heading
+            %i.fa.fa-arrow-circle-right
+.col-lg-3
+  .panel.panel-warning
+    .panel-heading
+      .row
+        .col-xs-6
+          %i.fa.fa-check.fa-5x
+        .col-xs-6.text-right
+          %p.announcement-heading= @team.awaiting_doughnuts
+          %p.announcement-text Doughnuts awaiting delivery
+    %a{:href => "#"}
+      .panel-footer.announcement-bottom
         .row
           .col-xs-6
-            %i.fa.fa-check.fa-5x
+            Description
           .col-xs-6.text-right
-            %p.announcement-heading= @team.awaiting_doughnuts
-            %p.announcement-text Doughnuts awaiting delivery
-      %a{:href => "#"}
-        .panel-footer.announcement-bottom
-          .row
-            .col-xs-6
-              Description
-            .col-xs-6.text-right
-              %i.fa.fa-arrow-circle-right
-  .col-lg-3
-    .panel.panel-danger
-      .panel-heading
+            %i.fa.fa-arrow-circle-right
+.col-lg-3
+  .panel.panel-danger
+    .panel-heading
+      .row
+        .col-xs-6
+          %i.fa.fa-tasks.fa-5x
+        .col-xs-6.text-right
+          %p.announcement-heading= @team.bloopers_count
+          %p.announcement-text Times members have to bring doughnuts
+    %a{:href => "#"}
+      .panel-footer.announcement-bottom
         .row
           .col-xs-6
-            %i.fa.fa-tasks.fa-5x
+            Fix Issues
           .col-xs-6.text-right
-            %p.announcement-heading= @team.bloopers_count
-            %p.announcement-text Times members have to bring doughnuts
-      %a{:href => "#"}
-        .panel-footer.announcement-bottom
-          .row
-            .col-xs-6
-              Fix Issues
-            .col-xs-6.text-right
-              %i.fa.fa-arrow-circle-right
-  .col-lg-3
-    .panel.panel-success
-      .panel-heading
+            %i.fa.fa-arrow-circle-right
+.col-lg-3
+  .panel.panel-success
+    .panel-heading
+      .row
+        .col-xs-6
+          %i.fa.fa-comments.fa-5x
+        .col-xs-6.text-right
+          %p.announcement-heading 56
+          %p.announcement-text New Orders!
+    %a{:href => "#"}
+      .panel-footer.announcement-bottom
         .row
           .col-xs-6
-            %i.fa.fa-comments.fa-5x
+            Complete Orders
           .col-xs-6.text-right
-            %p.announcement-heading 56
-            %p.announcement-text New Orders!
-      %a{:href => "#"}
-        .panel-footer.announcement-bottom
-          .row
-            .col-xs-6
-              Complete Orders
-            .col-xs-6.text-right
-              %i.fa.fa-arrow-circle-right
+            %i.fa.fa-arrow-circle-right

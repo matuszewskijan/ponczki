@@ -1,0 +1,30 @@
+%section.jk-slider
+  #carousel-example.carousel.slide{"data-ride" => "carousel"}
+    %ol.carousel-indicators
+      %li.active{"data-slide-to" => "0", "data-target" => "#carousel-example"}
+      %li{"data-slide-to" => "1", "data-target" => "#carousel-example"}
+      %li{"data-slide-to" => "2", "data-target" => "#carousel-example"}
+    .carousel-inner
+      .item.active
+        = image_tag "slide-2.jpg"
+        .hero
+          %hgroup
+            %h1 Improve Team Security
+            %p If someone notices unlocked screen, he may type the word - 'ponczki' one of the public channels on your team Slack.
+      .item
+        = image_tag "slide-1.jpg"
+        .hero
+          %hgroup
+            %h1 Connected with Slack
+            %p As a penalty for breaking security aspects, the one who was caught in the act owes everyone in the company doughnuts and is obliged to bring them to the office.
+      .item
+        = image_tag "slide-3.jpg"
+        .hero
+          %hgroup
+            %h1 Start using Ponczki
+            %p Click button below to start using our app:
+            = render "sign_in_with_slack"
+    %a.left.carousel-control{"data-slide" => "prev", :href => "#carousel-example"}
+      %span.glyphicon.glyphicon-chevron-left
+    %a.right.carousel-control{"data-slide" => "next", :href => "#carousel-example"}
+      %span.glyphicon.glyphicon-chevron-right

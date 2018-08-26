@@ -30,8 +30,11 @@
             %li
               %i.fa.fa-eye
               50 profile views
-  %hr
-  = render "team"
+      %hr
+    .row
+      .col-lg-12
+        = render "team"
 
-  %h2 Members:
-  = render @team.users
+    %h2 Members:
+    .row
+      = render @team.users

@@ -14,7 +14,4 @@ RSpec.describe Blooper, type: :model do
     it { expect(subject.finder_id).to eq finder.id }
     it { expect(subject.doughnut_counter).to eq team.users.count - 1 }
   end
-
-  describe "update_users_and_team" do
-  end
 end

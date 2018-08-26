@@ -16,7 +16,7 @@ gem "sqlite3"
 gem "uglifier"
 gem "overcommit"
 gem "rubocop"
-gem "scss_lint"
+gem "scss_lint", require: false
 gem "turbolinks", "~> 5.1.0"
 gem "coffee-rails"
 gem "image_optim"

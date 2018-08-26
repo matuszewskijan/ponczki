@@ -4,3 +4,13 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 @import 'teams';
+@import 'home';
+@import 'slider';
+
+.slack-button {
+  padding: 5px !important;
+}
+
+.navbar {
+  margin-bottom: 0px;
+}
