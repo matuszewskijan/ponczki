@@ -46,7 +46,7 @@ class UsersController < ApplicationController
   private
 
   def set_user
-    @user = User.find(params[:id])
+    @user = User.find_by(slack_nick: params[:name])
   end
 
   # Only allow a trusted parameter "white list" through.

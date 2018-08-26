@@ -22,4 +22,7 @@
     - else
       .btn.btn-danger Not yet!
 
-  .col-sm-1 Created #{distance_of_time_in_words(blooper.created_at, Time.now)} ago
+  .col-sm-1
+    Created #{distance_of_time_in_words(blooper.created_at, Time.now)} ago
+    - if edit
+      = link_to "Mark as Delivered", mark_as_delivered_blooper_path(blooper)

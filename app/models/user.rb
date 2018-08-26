@@ -26,7 +26,8 @@ class User < ApplicationRecord
     !team_admin_id.nil?
   end
 
-  def increment_awaiting_doughnuts
-    increment!(:awaiting_doughnuts)
+  def update_after_blooper(finder)
+    increment!(:bloopers_count).increment!(:awaiting_doughnuts, -1)
+    finder.increment!(:findings_count)
   end
 end

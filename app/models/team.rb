@@ -33,7 +33,8 @@ class Team < ApplicationRecord
     user.save!
   end
 
-  def increment_awaiting_doughnuts(doughnut_counter)
+  def update_after_blooper(doughnut_counter)
     increment!(:awaiting_doughnuts, doughnut_counter)
+    users.each { |u| u.increment!(:awaiting_doughnuts) }
   end
 end

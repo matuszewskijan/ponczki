@@ -5,11 +5,11 @@ FactoryBot.define do
     description "MyText"
     position "MyText"
     slack_nick "MyText"
-    slack_id { Array.new(9) { rand(10) } }
-    eaten_doughnuts 1
-    awaiting_doughnuts 1
-    delivered_doughnuts 1
-    bloopers_count 1
+    slack_id { Array.new(9) { rand(10) }.join }
+    eaten_doughnuts 0
+    awaiting_doughnuts 0
+    delivered_doughnuts 0
+    bloopers_count 0
     team_admin_id nil
     email { Faker::Internet.email }
     password { Devise.friendly_token[0, 20] }

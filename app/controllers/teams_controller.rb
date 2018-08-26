@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-  before_action :set_team, only: [:show, :edit, :update, :destroy, :become_admin, :tutorial]
+  before_action :set_team, only: [:show, :edit, :update, :destroy, :become_admin, :tutorial, :manage]
 
   # GET /teams
   def index
@@ -52,6 +52,10 @@ class TeamsController < ApplicationController
   def become_admin; end
 
   def setup; end
+
+  def manage
+    redirect_to root_path && return unless current_user.team_admin?
+  end
 
   private
 

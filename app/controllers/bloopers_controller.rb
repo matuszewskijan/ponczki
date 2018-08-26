@@ -1,5 +1,5 @@
 class BloopersController < ApplicationController
-  before_action :set_blooper, only: [:show, :edit, :update, :destroy]
+  before_action :set_blooper, only: [:show, :edit, :update, :destroy, :mark_as_delivered]
 
   # GET /bloopers
   def index
@@ -41,6 +41,13 @@ class BloopersController < ApplicationController
   def destroy
     @blooper.destroy
     redirect_to bloopers_url, notice: "Blooper was successfully destroyed."
+  end
+
+  def mark_as_delivered
+    redirect_to root_path && return unless current_user.team_admin?
+    @blooper.delivered
+    flash[:notice] = "Blooper successfully marked as delivered!"
+    redirect_to manage_team_path(current_user.team.slack_name)
   end
 
   private
