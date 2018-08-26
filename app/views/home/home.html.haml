@@ -1,4 +1,8 @@
-- content_for :banner do
-  = render "slider"
+- unless user_signed_in?
+  - content_for :banner do
+    = render "slider"
 
-= render "timeline"
+  = render "timeline"
+- else
+  = render current_user.team
+  = render "timeline"

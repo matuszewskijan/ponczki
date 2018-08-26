@@ -1,64 +1,49 @@
-.col-lg-3
-  .panel.panel-info
-    .panel-heading
-      .row
-        .col-xs-6
-          %i.fa.fa-users.fa-5x
-        .col-xs-6.text-right
-          %p.announcement-heading= @team.members_count
-          %p.announcement-text Team Members
-    %a{:href => "#"}
-      .panel-footer.announcement-bottom
-        .row
-          .col-xs-6
-            View users
-          .col-xs-6.text-right
-            %i.fa.fa-arrow-circle-right
-.col-lg-3
-  .panel.panel-warning
-    .panel-heading
-      .row
-        .col-xs-6
-          %i.fa.fa-check.fa-5x
-        .col-xs-6.text-right
-          %p.announcement-heading= @team.awaiting_doughnuts
-          %p.announcement-text Doughnuts awaiting delivery
-    %a{:href => "#"}
-      .panel-footer.announcement-bottom
-        .row
-          .col-xs-6
-            Description
-          .col-xs-6.text-right
-            %i.fa.fa-arrow-circle-right
-.col-lg-3
-  .panel.panel-danger
-    .panel-heading
-      .row
-        .col-xs-6
-          %i.fa.fa-tasks.fa-5x
-        .col-xs-6.text-right
-          %p.announcement-heading= @team.bloopers_count
-          %p.announcement-text Times members have to bring doughnuts
-    %a{:href => "#"}
-      .panel-footer.announcement-bottom
-        .row
-          .col-xs-6
-            Fix Issues
-          .col-xs-6.text-right
-            %i.fa.fa-arrow-circle-right
-.col-lg-3
-  .panel.panel-success
-    .panel-heading
-      .row
-        .col-xs-6
-          %i.fa.fa-comments.fa-5x
-        .col-xs-6.text-right
-          %p.announcement-heading 56
-          %p.announcement-text New Orders!
-    %a{:href => "#"}
-      .panel-footer.announcement-bottom
-        .row
-          .col-xs-6
-            Complete Orders
-          .col-xs-6.text-right
-            %i.fa.fa-arrow-circle-right
+.col-lg-12.col-sm-12
+  .card
+    .col-sm-3.no-padding
+      %img.team-logo{ alt: team.name, src: team.avatar_url }
+    .col-sm-9.center
+      %h1
+        = link_to team.name, team_path(team.slack_name)
+        %small Team Overview
+    .col-sm-9
+      .team-info
+        %p
+          %i.fa.fa-user
+          Owner: #{team.admin.first_name}
+        %p
+          %i.fa.fa-calendar-o
+          Member for #{distance_of_time_in_words(team.created_at, Time.now)}
+        %p
+          %i.fa.fa-clock-o
+          Last updated #{distance_of_time_in_words(team.updated_at, Time.now)} ago
+        %p
+          %i.fa.fa-users
+          Members: #{team.users.count}
+        %p
+          %i.fa.fa-slack
+          = link_to team.slack_url
+    .btn-pref.btn-group.btn-group-justified.btn-group-lg{"aria-label" => "...", :role => "group"}
+      .btn-group{:role => "group"}
+        %button#stars.btn.btn-primary{"data-toggle" => "tab", :href => "#tab1", :type => "button"}
+          %span.glyphicon.glyphicon-star{"aria-hidden" => "true"}
+          .hidden-xs Recent Security Breaks
+      .btn-group{:role => "group"}
+        %button#following.btn.btn-default{"data-toggle" => "tab", :href => "#tab3", :type => "button"}
+          %span.glyphicon.glyphicon-user{"aria-hidden" => "true"}
+          .hidden-xs Users
+    .well
+      .tab-content
+        #tab1.tab-pane.fade.in.active
+          .row.center
+            .col-sm-1 Seen?
+            .col-sm-1 Doughnuts count
+            .col-sm-4 Doughnuts to buy
+            .col-sm-1
+            .col-sm-3 Finder Name
+            .col-sm-1 Delivered?
+            .col-sm-1 Time
+          = render team.bloopers.limit(5)
+        #tab3.tab-pane.fade.in
+          .row
+            = render team.users

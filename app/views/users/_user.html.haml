@@ -21,11 +21,13 @@
       .bg-c-blue.counter-block.m-t-10.p-20
         .row
           .col-4
-            %i.fa.fa-comment
-            %p 1256
+            %p
+              %i.fa.fa-lock.fa-2x.user-statistics
+              Security breaks:
+            %p= user.bloopers.count
           .col-4
             %p
-              %i.fa.fa-rocket.fa-2x{style: "color: black;"}
+              %i.fa.fa-rocket.fa-2x.user-statistics
               Doughnuts awaiting delivery:
             %p= user.awaiting_doughnuts
           .col-4

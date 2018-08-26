@@ -1,5 +1,6 @@
 class Blooper < ApplicationRecord
   belongs_to :user
+  belongs_to :finder, class_name: "User", foreign_key: "finder_id"
 
   after_create :update_users_and_team
 

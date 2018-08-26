@@ -1,0 +1,25 @@
+.row.center
+  .col-sm-1
+    - if blooper.noticed?
+      %i.fa.fa-2x.fa-eye.fa-fw
+    - else
+      %i.fa.fa-2x.fa-eye-slash.fa-fw
+  .col-sm-1
+    %p= blooper.doughnut_counter
+  .col-sm-4.blooper-info
+    %p= blooper.user.first_name
+    %p
+      %small= link_to blooper.user.email, "mailto:#{blooper.user.first_name}"
+  .col-sm-1
+    = image_tag blooper.user.avatar_url, class: "img-circle", width: "60px"
+  .col-sm-3.blooper-info
+    %p= blooper.finder.first_name
+    %p
+      %small= link_to blooper.finder.email, "mailto:#{blooper.finder.first_name}"
+  .col-sm-1
+    - if blooper.delivery_status
+      .btn.btn-success Yes!
+    - else
+      .btn.btn-danger Not yet!
+
+  .col-sm-1 Created #{distance_of_time_in_words(blooper.created_at, Time.now)} ago
