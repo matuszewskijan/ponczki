@@ -8,12 +8,10 @@
           = link_to "Administrator", user_path(user.slack_nick)
     .card-block
       .user-image
-        %img.img-radius{ alt: user.first_name, src: user.avatar_url }
+        %img.img-radius{ alt: user.first_name, src: user.avatar_url, width: "100px" }
       %h6.f-w-600.m-t-25.m-b-10= user.first_name
-      = user.bloopers_count
-      = user.team.bloopers.count
       %p.text-muted= "#{user.position} at #{user.team.name}"
-      - activity = user.bloopers_count.to_f / user.team.bloopers.count
+      - activity = user.team.bloopers.count != 0 ? user.bloopers_count.to_f / user.team.bloopers.count : 1
       %p.text-muted.m-t-15 Activity Level: #{activity * 100}%
       %ul.list-unstyled.activity-leval
         - (activity * 5).to_i.times do

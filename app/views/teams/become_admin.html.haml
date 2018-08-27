@@ -1,7 +1,8 @@
-%h2 We have find out that your team still doesn't have Administrator
-%h3 Are you the owner of #{@team.slack_url} channel? Maybe you are a team lider?
-%h2 Would you like to manage your team at Ponczki website?
-%h5 What you have to do as team administrator?
-%p Judge your mates - you will be the decisive person which make their doughnut counter to show zero!
-%p Configure Ponczki application on your slack - no worries if you are not technical - we have prepared simple step-by-step tutorial to make everything as easy as possible!
-= link_to "Yes, I'm ready. Let's start!", edit_team_path(@team.slack_name)
+%h2 Your team doesn't have Administrator!
+%h3 We would like you to be administrator of #{@team.slack_url} at Ponczki.
+%h3 What you will be able to do?
+%ol
+  %li Decise if someone bought doughnuts or not.
+  %li Edit team informations
+  %li Control squad of your team.
+= link_to "Yes, I'm ready. Let's start!", edit_team_path(@team.slack_name), class: "btn btn-default center"

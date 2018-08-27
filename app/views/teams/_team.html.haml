@@ -10,7 +10,10 @@
       .team-info
         %p
           %i.fa.fa-user
-          Owner: #{team.admin.first_name}
+          - if team.admin.nil?
+            This team doesn't have owner :c
+          - else
+            Owner: #{team.admin.first_name}
         %p
           %i.fa.fa-calendar-o
           Member for #{distance_of_time_in_words(team.created_at, Time.now)}

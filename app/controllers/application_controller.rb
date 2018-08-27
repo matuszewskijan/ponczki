@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   def show_alerts
     return unless user_signed_in?
-    flash[:alert] = FlashNotificationService.generate_message(current_user)
+    puts FlashNotificationService.generate_message(current_user)
+    flash[:notice] = FlashNotificationService.generate_message(current_user)
   end
 end
