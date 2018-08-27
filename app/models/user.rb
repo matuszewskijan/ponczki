@@ -22,7 +22,7 @@ class User < ApplicationRecord
   end
 
   def add_team(team_id)
-    team = team_id
+    self.team_id = team_id
     save!
   end
 
