@@ -22,8 +22,8 @@ class User < ApplicationRecord
   end
 
   def add_team(team_id)
-    user.team = team_id
-    user.save
+    team = team_id
+    save!
   end
 
   def team_admin?
