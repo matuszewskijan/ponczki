@@ -8,7 +8,7 @@
     %p.lead To make Ponczki work you have to follow these steps:
     %p.lead
       1. Click
-      =link_to "https://slack.com/oauth/authorize?scope=commands&client_id=421909177058.423249237542" do
+      =link_to "https://slack.com/oauth/authorize?scope=commands&client_id=421909177058.423249237542&redirect_uri=#{request.url}" do
         %img{:alt => "Add to Slack", :height => "40", :src => "https://platform.slack-edge.com/img/add_to_slack.png", :srcset => "https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x", :width => "139"}/
       Button
     %p.lead
