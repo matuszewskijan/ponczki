@@ -11,12 +11,16 @@
     / Collect the nav links, forms, and other content for toggling
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav
-        %li= link_to "Teams", teams_path
-        %li= link_to "Workers", users_path
-        %li= link_to "Bloopers", bloopers_path
         %li= link_to "About Ponczki", "#"
-        - if current_user.team_admin?
-          %li= link_to "Manage Team", manage_team_path(current_user.team.slack_name)
+        - if user_signed_in?
+          %li= link_to "Your Team", team_path(current_user.team.slack_name)
+          %li
+            = link_to bloopers_user_path(current_user.slack_nick) do
+              Issues
+              - unless current_user.bloopers.unseen.empty?
+                .i.fa.fa-dot-circle-o
+          -if current_user.team_admin?
+            %li= link_to "Manage Team", manage_team_path(current_user.team.slack_name)
       %ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
           %li= link_to "Profile", user_path(current_user.slack_nick)

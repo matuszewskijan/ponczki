@@ -1,4 +1,16 @@
-%h3 HI!
-%h4 Thanks that you decided to take care of #{@team.name} team!
-%h3 We just want you to to followe these few steps to enable Ponczki on your slack workspace!
-%p <a href="https://slack.com/oauth/authorize?client_id=421909177058.423249237542&scope=commands"><img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" /></a>
+.row
+  %h2
+    Ponczki /
+    %small App Configuration
+  .inner.cover
+    %h1.cover-heading Hello,
+    %p.lead Thanks that you decided to take care of #{@team.slack_url} team!
+    %p.lead To make Ponczki work you have to follow these steps:
+    %p.lead
+      1. Click
+      =link_to "https://slack.com/oauth/authorize?scope=commands&client_id=421909177058.423249237542" do
+        %img{:alt => "Add to Slack", :height => "40", :src => "https://platform.slack-edge.com/img/add_to_slack.png", :srcset => "https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x", :width => "139"}/
+      Button
+    %p.lead
+      2. Write '/ponczki setup' on your slack channel.
+    %p.lead If you see 'Yay! Everything works fine, your team is setted up. Now you can use all Ponczki features!' everything works fine!

@@ -6,7 +6,7 @@
       %i.fa.fa-2x.fa-eye-slash.fa-fw
   .col-sm-1
     %p= blooper.doughnut_counter
-  .col-sm-4.blooper-info
+  .col-sm-3.blooper-info
     %p= blooper.user.first_name
     %p
       %small= link_to blooper.user.email, "mailto:#{blooper.user.first_name}"
@@ -24,5 +24,6 @@
 
   .col-sm-1
     Created #{distance_of_time_in_words(blooper.created_at, Time.now)} ago
-    - if edit
-      = link_to "Mark as Delivered", mark_as_delivered_blooper_path(blooper)
+  - if defined?(edit)
+    .col-sm-1
+      = link_to "Mark as Delivered", mark_as_delivered_blooper_path(blooper), class: "btn btn-success"

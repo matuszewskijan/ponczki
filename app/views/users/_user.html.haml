@@ -3,21 +3,23 @@
     .card-header
       %h5
         - if user.team_admin_id.nil?
-          Member
+          = link_to "Member", user_path(user.slack_nick)
         - else
-          Administrator
+          = link_to "Administrator", user_path(user.slack_nick)
     .card-block
       .user-image
         %img.img-radius{ alt: user.first_name, src: user.avatar_url }
       %h6.f-w-600.m-t-25.m-b-10= user.first_name
+      = user.bloopers_count
+      = user.team.bloopers.count
       %p.text-muted= "#{user.position} at #{user.team.name}"
-      %p.text-muted.m-t-15 Activity Level: 87%
+      - activity = user.bloopers_count.to_f / user.team.bloopers.count
+      %p.text-muted.m-t-15 Activity Level: #{activity * 100}%
       %ul.list-unstyled.activity-leval
-        %li.active
-        %li.active
-        %li.active
-        %li
-        %li
+        - (activity * 5).to_i.times do
+          %li.active
+        - (5 - (activity * 5)).to_i.times do
+          %li
       .bg-c-blue.counter-block.m-t-10.p-20
         .row
           .col-4
@@ -28,7 +30,7 @@
           .col-4
             %p
               %i.fa.fa-rocket.fa-2x.user-statistics
-              Doughnuts awaiting delivery:
+              Waiting for doughnuts:
             %p= user.awaiting_doughnuts
           .col-4
             %p

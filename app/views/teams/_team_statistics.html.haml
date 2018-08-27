@@ -5,15 +5,8 @@
         .col-xs-6
           %i.fa.fa-users.fa-5x
         .col-xs-6.text-right
-          %p.announcement-heading= team.members_count
+          %p.announcement-heading= team.users.count
           %p.announcement-text Team Members
-    %a{:href => "#"}
-      .panel-footer.announcement-bottom
-        .row
-          .col-xs-6
-            View users
-          .col-xs-6.text-right
-            %i.fa.fa-arrow-circle-right
 .col-lg-3
   .panel.panel-warning
     .panel-heading
@@ -21,15 +14,8 @@
         .col-xs-6
           %i.fa.fa-check.fa-5x
         .col-xs-6.text-right
-          %p.announcement-heading= team.awaiting_doughnuts
-          %p.announcement-text Doughnuts awaiting delivery
-    %a{:href => "#"}
-      .panel-footer.announcement-bottom
-        .row
-          .col-xs-6
-            Description
-          .col-xs-6.text-right
-            %i.fa.fa-arrow-circle-right
+          %p.announcement-heading= team.eaten_doughnuts
+          %p.announcement-text Eaten Doughnuts
 .col-lg-3
   .panel.panel-danger
     .panel-heading
@@ -37,28 +23,14 @@
         .col-xs-6
           %i.fa.fa-tasks.fa-5x
         .col-xs-6.text-right
-          %p.announcement-heading= team.bloopers_count
-          %p.announcement-text Times members have to bring doughnuts
-    %a{:href => "#"}
-      .panel-footer.announcement-bottom
-        .row
-          .col-xs-6
-            Fix Issues
-          .col-xs-6.text-right
-            %i.fa.fa-arrow-circle-right
+          %p.announcement-heading= team.bloopers.delivered.count
+          %p.announcement-text Times members bringed doughnuts
 .col-lg-3
   .panel.panel-success
     .panel-heading
       .row
         .col-xs-6
-          %i.fa.fa-comments.fa-5x
+          %i.fa.fa-fire.fa-5x
         .col-xs-6.text-right
-          %p.announcement-heading 56
-          %p.announcement-text New Orders!
-    %a{:href => "#"}
-      .panel-footer.announcement-bottom
-        .row
-          .col-xs-6
-            Complete Orders
-          .col-xs-6.text-right
-            %i.fa.fa-arrow-circle-right
+          %p.announcement-heading Aprox. #{team.eaten_doughnuts * 350} cal
+          %p.announcement-text Eaten

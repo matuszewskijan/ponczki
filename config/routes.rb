@@ -6,7 +6,12 @@ Rails.application.routes.draw do
       get :mark_as_delivered
     end
   end
-  resources :users, path: "user", param: :name
+  resources :users, path: "user", param: :name do
+    member do
+      get :bloopers
+    end
+    #post "edit", to: "users#update"
+  end
   resources :teams, except: :edit, param: :name do
     member do
       get :manage

@@ -15,7 +15,7 @@
     -webkit-box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
     box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
     border: none;
-    margin-bottom: 30px;
+    margin-bottom: 30;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
 }
@@ -32,7 +32,7 @@
     font-size: 14px;
     font-weight: 600;
     display: inline-block;
-    margin-right: 10px;
+    margin-right: 10;
     line-height: 1.4;
 }
 
@@ -53,8 +53,8 @@
     margin: 0 auto;
     display: inline-block;
     padding: 5px;
-    width: 110px;
-    height: 110px;
+    width: 110;
+    height: 110;
 }
 
 .user-card .card-block .user-image img {
@@ -62,8 +62,8 @@
     position: absolute;
     top: 5px;
     left: 5px;
-        width: 100px;
-    height: 100px;
+        width: 100;
+    height: 100;
 }
 
 .img-radius {
@@ -75,7 +75,7 @@
 }
 
 .m-b-10 {
-    margin-bottom: 10px;
+    margin-bottom: 10;
 }
 
 .m-t-25 {
@@ -127,15 +127,15 @@
 }
 
 .m-t-10 {
-    margin-top: 10px;
+    margin-top: 10;
 }
 
 .p-20 {
-    padding: 20px;
+    padding: 20;
 }
 
 .user-card .card-block .user-social-link i {
-    font-size: 30px;
+    font-size: 30;
 }
 
 .text-facebook {
@@ -152,8 +152,8 @@
 
 .user-card .card-block .user-image:before {
     bottom: 0;
-    border-bottom-left-radius: 50px;
-    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50;
+    border-bottom-right-radius: 50;
 }
 
 .user-card .card-block .user-image:after, .user-card .card-block .user-image:before {
@@ -168,8 +168,8 @@
 
 .user-card .card-block .user-image:after {
     top: 0;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
+    border-top-left-radius: 50;
+    border-top-right-radius: 50;
 }
 
 .user-card .card-block .user-image:after, .user-card .card-block .user-image:before {
@@ -193,6 +193,6 @@
     font-size: 1.23em;
 }
 
-.well .row{
-    border: 1px solid #e3e3e3;
+.panel-heading {
+    min-height: 120;
 }

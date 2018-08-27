@@ -1,0 +1,26 @@
+.col-md-5
+  .user-profile
+    .profile-info-left
+      .text-center
+        = image_tag user.avatar_url, alt: "#{user.first_name} avatar", class: "avatar img-circle", width: "250px", height: "250px"
+        %h2= user.first_name
+        - if user.position.nil?
+          %h4 User didn't set position yet!
+        - else
+          %h4 #{user.position} at #{link_to user.team.name, team_path(user.team.slack_name)}
+      .action-buttons
+        .row
+          .col-xs-6
+            %a.btn.btn-success.btn-block{href: "#", disabled: "disabled"}
+              %i.fa.fa-plus-round
+              Follow
+          .col-xs-6
+            %a.btn.btn-primary.btn-block{href: "#", disabled: "disabled"}
+              %i.fa.fa-android-mail
+              Message
+      .section
+        %h3 About Me:
+        - if user.description.nil?
+          %p User didn't set description yet!
+        - else
+          %p= user.description

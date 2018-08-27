@@ -1,0 +1,36 @@
+.col-lg-3
+  .panel.panel-info
+    .panel-heading
+      .row
+        .col-xs-6
+          %i.fa.fa-fire.fa-5x
+        .col-xs-6.text-right
+          %p.announcement-heading= user.eaten_doughnuts
+          %p.announcement-text Eaten Doughnuts
+.col-lg-3
+  .panel.panel-warning
+    .panel-heading
+      .row
+        .col-xs-6
+          %i.fa.fa-check.fa-5x
+        .col-xs-6.text-right
+          %p.announcement-heading= user.awaiting_doughnuts
+          %p.announcement-text Waiting for doughnuts
+.col-lg-3
+  .panel.panel-danger
+    .panel-heading
+      .row
+        .col-xs-6
+          %i.fa.fa-warning.fa-5x
+        .col-xs-6.text-right
+          %p.announcement-heading= user.bloopers_count
+          %p.announcement-text Times broken security
+.col-lg-3
+  .panel.panel-success
+    .panel-heading
+      .row
+        .col-xs-6
+          %i.fa.fa-lock.fa-5x
+        .col-xs-6.text-right
+          %p.announcement-heading= user.findings_count
+          %p.announcement-text Noticed unlocked screen

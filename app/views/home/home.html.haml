@@ -1,7 +1,9 @@
 - unless user_signed_in?
   - content_for :banner do
     = render "slider"
-
+  %hr
+  %h3.center Main Goals of Ponczki
+  %hr
   = render "timeline"
 - else
   = render current_user.team

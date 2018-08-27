@@ -1,73 +1,12 @@
-.container
-  .user-profile
-    .row
-      .col-md-4
-        .profile-info-left
-          .text-center
-            = image_tag @user.avatar_url, alt: "#{@user.first_name} avatar", class: "avatar img-circle", width: "250px", height: "250px"
-            %h2= @user.first_name
-            %h4 #{@user.position} at #{link_to @user.team.name, team_path(@user.team.slack_name)}
-          .action-buttons
-            .row
-              .col-xs-6
-                %a.btn.btn-success.btn-block{href: "#"}
-                  %i.fa.fa-plus-round
-                  Follow
-              .col-xs-6
-                %a.btn.btn-primary.btn-block{href: "#"}
-                  %i.fa.fa-android-mail
-                  Message
-          .section
-            %h3 About Me
-            %p= @user.description
-      .col-md-8
-        .section
-          %h3 Statistics
-          %p
-            %span.badge= @user.eaten_doughnuts
-            eaten_doughnuts
-          %p
-            %span.badge= @user.awaiting_doughnuts
-            awaiting_doughnuts
-          %p
-            %span.badge= @user.delivered_doughnuts
-            delivered_doughnuts
-        .section
-          %h3 Social
-          %ul.list-unstyled.list-social
-%p#notice= notice
-
-%p
-  %b First name:
-  = @user.first_name
-%p
-  %b Last name:
-  = @user.last_name
-%p
-  %b Description:
-  = @user.description
-%p
-  %b Position:
-  = @user.position
-%p
-  %b Slack nick:
-  = @user.slack_nick
-%p
-  %b Eaten doughnuts:
-  = @user.eaten_doughnuts
-%p
-  %b Awaiting doughnuts:
-  = @user.awaiting_doughnuts
-%p
-  %b Delivered doughnuts:
-  = @user.delivered_doughnuts
-%p
-  %b Bloopers count:
-  = @user.bloopers_count
-%p
-  %b Team:
-  = @user.team_id
-
-= link_to 'Edit', edit_user_path(@user)
-\|
-= link_to 'Back', users_path
+%h3
+  User Dashboard /
+  - if user_signed_in? && current_user == @user
+    %small= link_to 'Edit', edit_user_path(@user.slack_nick)
+.row
+  = render "user_info", user: @user
+  = render "user_statistics", user: @user
+%hr
+.row
+  %h3 Recent security issues:
+  = render "bloopers/blooper_column_names"
+  = render @user.bloopers.limit(5)

@@ -1,0 +1,13 @@
+%h2 Your current issues:
+- if current_user.bloopers.not_delivered.empty?
+  %h3 Happily you don't have any issues at this time! Keep this up!
+- else
+  = render "bloopers/blooper_column_names"
+  = render current_user.bloopers.not_delivered
+
+%h2 History:
+- if current_user.bloopers.delivered.empty?
+  %h3 Nothing to show.
+- else
+  = render "bloopers/blooper_column_names"
+  = render current_user.bloopers.delivered

@@ -5,6 +5,7 @@ class Blooper < ApplicationRecord
 
   scope :not_delivered, -> { where(delivery_status: false) }
   scope :delivered, -> { where(delivery_status: true) }
+  scope :unseen, -> { where(noticed: nil, delivery_status: false) }
 
   def self.new_blooper(user, finder, team)
     blooper = create!(

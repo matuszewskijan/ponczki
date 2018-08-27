@@ -35,15 +35,18 @@
     .well
       .tab-content
         #tab1.tab-pane.fade.in.active
-          .row.center
-            .col-sm-1 Seen?
-            .col-sm-1 Doughnuts count
-            .col-sm-4 Doughnuts to buy
-            .col-sm-1
-            .col-sm-3 Finder Name
-            .col-sm-1 Delivered?
-            .col-sm-1 Time
-          = render team.bloopers.limit(5)
+          - if team.bloopers.empty?
+            This team doesn't have any issues at this time!
+          - else
+            .row.center
+              .col-sm-1 Seen?
+              .col-sm-1 Doughnuts count
+              .col-sm-4 Doughnuts to buy
+              .col-sm-1
+              .col-sm-3 Finder Name
+              .col-sm-1 Delivered?
+              .col-sm-1 Time
+            = render team.bloopers.limit(5)
         #tab3.tab-pane.fade.in
           .row
             = render team.users

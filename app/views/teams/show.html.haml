@@ -12,29 +12,32 @@
         = image_tag @team.avatar_url, alt: @team.name, class: "img-responsive center-block"
     .col-sm-9
       .row
-        .col-sm-6
-          %h3.user-profile__title= @team.name
+        .col-sm-12
+          %h3.user-profile__title
+            Team description:
           %p.user-profile__desc
-            = @team.description
-          .user-profile__url
-            = link_to @team.slack_url
-        .col-sm-6
-          / Profile info
+            - if @team.description.empty?
+              This team doesn't have description yet.
+            - else
+              = @team.description
+      %hr
+        .col-sm-12
           %ul.user-profile__info
             %li
               %i.fa.fa-calendar-o
               Member for #{distance_of_time_in_words(@team.created_at, Time.now)}
             %li
               %i.fa.fa-clock-o
-              Last seen 2 hours ago
+              Last updated #{distance_of_time_in_words(@team.updated_at, Time.now)} ago
             %li
-              %i.fa.fa-eye
-              50 profile views
-      %hr
+              %i.fa.fa-slack
+              = link_to @team.slack_url
+  %hr
     .row
       .col-lg-12
-        = render "team"
+        = render "team_statistics", team: @team
 
+  %hr
     %h2 Members:
     .row
       = render @team.users
