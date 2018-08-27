@@ -11,7 +11,7 @@
     / Collect the nav links, forms, and other content for toggling
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav
-        %li= link_to "About Ponczki", "#"
+        %li= link_to "Help", help_path
         - if user_signed_in?
           %li= link_to "Your Team", team_path(current_user.team.slack_name)
           %li

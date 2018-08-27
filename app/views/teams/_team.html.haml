@@ -11,7 +11,8 @@
         %p
           %i.fa.fa-user
           - if team.admin.nil?
-            This team doesn't have owner :c
+            This team doesn't have owner :c -
+            = link_to "Become Owner", become_team_admin_path(team.slack_name)
           - else
             Owner: #{team.admin.first_name}
         %p

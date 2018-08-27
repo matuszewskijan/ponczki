@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   root to: "home#home"
+  get "/help", to: "home#help", as: :help
   resources :bloopers do
     member do
       get :mark_as_delivered
