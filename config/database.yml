@@ -1,0 +1,21 @@
+production:
+  encoding: utf8
+  pool: 15
+
+development:
+  adapter: postgresql
+  host: localhost
+  username: postgres
+  password: test
+  pool: 5
+  port: 5432
+  database: ponczki_development
+
+test:
+  adapter: postgresql
+  host: localhost
+  username: postgres
+  password: test
+  pool: 5
+  port: 5432
+  database: ponczki_test
