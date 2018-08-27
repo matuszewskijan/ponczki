@@ -17,9 +17,13 @@ class User < ApplicationRecord
       user.email = auth.info.email
       user.avatar_url = auth.extra.identity.user.image_512
       user.password = Devise.friendly_token[0, 20]
-      user.team = Team.find_by(slack_id: auth.info.team_id)
       user.save!
     end
+  end
+
+  def add_team(team_id)
+    user.team = team_id
+    user.save
   end
 
   def team_admin?
