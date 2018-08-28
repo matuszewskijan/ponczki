@@ -18,7 +18,10 @@
     - else
       User not registred
     %p
+    - unless blooper.finder.nil?
       %small= link_to blooper.finder.email, "mailto:#{blooper.finder.first_name}"
+    - else
+      %small= Nothing to show
   .col-sm-1
     - if blooper.delivery_status
       .btn.btn-success Yes!
