@@ -13,7 +13,10 @@
   .col-sm-1
     = image_tag blooper.user.avatar_url, class: "img-circle", width: "60px"
   .col-sm-3.blooper-info
-    %p= blooper.finder.first_name
+    - unless blooper.finder.nil?
+      %p= blooper.finder.first_name
+    - else
+      User not registred
     %p
       %small= link_to blooper.finder.email, "mailto:#{blooper.finder.first_name}"
   .col-sm-1
